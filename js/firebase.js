@@ -21,7 +21,7 @@ function signIn(){
       });
 }
 
-showWelcome(){
+function showWelcome(){
        var name, email, photoUrl, uid, emailVerified;
 
         if (user != null) {
