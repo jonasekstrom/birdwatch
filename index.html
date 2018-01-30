@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fågeldatabas</title>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" />
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+</head>
+  
+  </head>
+<body>
+  <div class="container">
+    <h1>Fågeldatabas</h1>
+    <button id="login" class="btn btn-primary"><i class="fa fa-google mr-2"></i>Sign in with Google</button>
+    <form id="bird-form">
+      <div>
+        <label for="name">Namn</label>
+        <input type="text" id="birdName" class="u-full-width">
+      </div>
+      <div>
+        <label for="color">Färg</label>
+        <input type="text" id="birdColor" class="u-full-width">
+      </div>
+      <div>
+        <label for="width">Vinnspann</label>
+        <input type="text" id="birdWidth" class="u-full-width">
+      </div>
+      <div>
+        <label for="origin">Ursprungsland</label>
+        <input type="text" id="birdOrigin" class="u-full-width">
+      </div>
+      <div>
+        <input type="submit" value="Lägg Till" class="u-full-width">
+      </div>
+    </form>
+    <table class="u-full-width">
+      <thead>
+        <tr>
+          <th>Namn</th>
+          <th>Färg</th>
+          <th>Vinnspann</th>
+          <th>Ursprungsland</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="bird-list"></tbody>
+    </table>
+  </div>
+  <div id="bird"></div>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/firebase.js"></script>
+  <script src="js/popper.min.js"></script>  
+  <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
