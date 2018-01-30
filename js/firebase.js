@@ -36,6 +36,7 @@ function showWelcome(){
         
         `;
 }
+}
 
 // Initialize Firebase
 var config = {
