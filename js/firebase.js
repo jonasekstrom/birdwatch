@@ -1,13 +1,13 @@
 document.getElementById('login').addEventListener('click', signIn);
-
+var user = '';
 var provider = new firebase.auth.GoogleAuthProvider();
 function signIn(){
     firebase.auth().signInWithPopup(provider).then(function(result) {
         // This gives you a Google Access Token. You can use it to access the Google API.
         var token = result.credential.accessToken;
         // The signed-in user info.
-        var user = result.user;
-        
+        user = result.user;
+        showWelcome();
         // ...
       }).catch(function(error) {
         // Handle Errors here.
@@ -19,6 +19,22 @@ function signIn(){
         var credential = error.credential;
         // ...
       });
+}
+
+showWelcome(){
+       var name, email, photoUrl, uid, emailVerified;
+
+        if (user != null) {
+        name = user.displayName;
+        email = user.email;
+        photoUrl = user.photoURL;
+        emailVerified = user.emailVerified;
+        output = document.getElementById('output');
+        output.innerHTML = `
+        Welcome ${name}<br>
+        ${photoUrl}    
+        
+        `;
 }
 
 // Initialize Firebase
