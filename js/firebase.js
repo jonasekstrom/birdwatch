@@ -169,10 +169,10 @@ class Ui {
     }
 
     deleteBird(target){
-        //const db = firebase.database();
+        const db = firebase.database();
         if(target.className === 'delete'){
             target.parentElement.parentElement.remove();
-            //db.ref('/').remove();
+            db.ref('/').remove(target);
         }
     }
 
