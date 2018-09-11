@@ -1,3 +1,43 @@
+document.getElementById('login').addEventListener('click', signIn);
+var user = '';
+var provider = new firebase.auth.GoogleAuthProvider();
+function signIn(){
+    firebase.auth().signInWithPopup(provider).then(function(result) {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        var token = result.credential.accessToken;
+        // The signed-in user info.
+        user = result.user;
+        showWelcome();
+        // ...
+      }).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // The email of the user's account used.
+        var email = error.email;
+        // The firebase.auth.AuthCredential type that was used.
+        var credential = error.credential;
+        // ...
+      });
+}
+
+function showWelcome(){
+       var name, email, photoUrl, uid, emailVerified;
+
+        if (user != null) {
+        name = user.displayName;
+        email = user.email;
+        photoUrl = user.photoURL;
+        emailVerified = user.emailVerified;
+        output = document.getElementById('output');
+        output.innerHTML = `
+        Welcome ${name}<br>
+        ${photoUrl}    
+        
+        `;
+}
+}
+
 // Initialize Firebase
 var config = {
     apiKey: "AIzaSyDUPX8amWPuFK5duOHLnO9J7hv7BZEc44A",
@@ -21,7 +61,6 @@ const newBird2 = {
     vingspann: '15 meter',
     hemland: 'Grönland'
 };
-
 const db = firebase.database();
 console.log('Adding to database...');
 //db.ref('Bird1/').push(newBird);
